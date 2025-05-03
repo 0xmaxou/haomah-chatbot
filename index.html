@@ -7,57 +7,52 @@
   <link href="https://cdn.jsdelivr.net/npm/@n8n/chat@latest/dist/style.css" rel="stylesheet" />
   <style>
     :root {
-      --chat--color-primary: #4fc3f7; 
-      --chat--color-primary-shade-50: #db4061;
-      --chat--color-primary-shade-100: #cf3c5c;
-      --chat--color-secondary: #20b69e;
-      --chat--color-secondary-shade-50: #1ca08a;
-      --chat--color-white: #ffffff;
-      --chat--color-light: #f2f4f8;
-      --chat--color-light-shade-50: #e6e9f1;
-      --chat--color-light-shade-100: #c2c5cc;
-      --chat--color-medium: #d2d4d9;
-      --chat--color-dark: #101330;
-      --chat--color-disabled: #777980;
-      --chat--color-typing: #404040;
+      --chat--color-primary: #4fc3f7;                /* // Couleur principale : logo chat flottant + boutons actifs */
+      --chat--color-primary-shade-50: #4fc3f7;       /* // Hover du logo et des éléments primaires */
+      --chat--color-primary-shade-100: #29b6f6;      /* // Clic sur logo / éléments primaires */
+      --chat--color-secondary: #0288d1;              /* // Bulle de message de l'utilisateur */
+      --chat--color-secondary-shade-50: #0277bd;     /* // Hover de bulle utilisateur */
+      --chat--color-white: #ffffff;                  /* // Arrière-plan clair */
+      --chat--color-light: #f0f8ff;                  /* // Couleur d’arrière-plan du header / textes secondaires */
+      --chat--color-light-shade-50: #e0f7ff;         /* // Variantes de fond clairs */
+      --chat--color-light-shade-100: #cdeeff;        /* // Autres nuances de fond */
+      --chat--color-medium: #d2d4d9;                 /* // Bordures ou éléments neutres */
+      --chat--color-dark: #0d47a1;                   /* // Couleur du texte dans le header / titre */
+      --chat--color-disabled: #b0bec5;               /* // Couleur des éléments désactivés */
+      --chat--color-typing: #404040;                 /* // Points de frappe (… en cours d’écriture) */
 
-      --chat--spacing: 1rem;
-      --chat--border-radius: 0.80rem; 
-      --chat--transition-duration: 0.15s;
+      --chat--spacing: 1rem;                         /* // Espacement général dans le chat */
+      --chat--border-radius: 1rem;                   /* // Arrondissement des angles du chat et des bulles */
+      --chat--transition-duration: 0.15s;            /* // Animation lors des changements */
 
-      --chat--window--width: 400px;
-      --chat--window--height: 600px;
+      --chat--window--width: 400px;                  /* // Largeur de la fenêtre du chat */
+      --chat--window--height: 600px;                 /* // Hauteur de la fenêtre du chat */
 
-      --chat--header--height: auto;
-      --chat--header--padding: var(--chat--spacing);
-      --chat--header--background: var(--chat--color-dark);
-      --chat--header--color: var(--chat--color-light);
-      --chat--header--border-top: none;
-      --chat--header--border-bottom: none;
+      --chat--header--height: auto;                  /* // Hauteur du bandeau haut */
+      --chat--header--padding: var(--chat--spacing); /* // Padding dans le bandeau */
+      --chat--header--background: var(--chat--color-dark); /* // Couleur de fond du bandeau haut */
+      --chat--header--color: var(--chat--color-light);     /* // Couleur du texte du bandeau haut */
 
-      --chat--heading--font-size: 2em;
-      --chat--heading--color: var(--chat--color-light);
-      --chat--subtitle--font-size: inherit;
-      --chat--subtitle--line-height: 1.8;
+      --chat--heading--font-size: 2em;               /* // Taille du titre (nom assistant) */
+      --chat--heading--color: var(--chat--color-light); /* // Couleur du titre */
+      --chat--subtitle--font-size: inherit;          /* // Taille du sous-titre */
+      --chat--subtitle--line-height: 1.8;            /* // Espacement ligne du sous-titre */
 
-      --chat--textarea--height: 50px;
-      --chat--message--font-size: 0.8rem;
-      --chat--message--padding: var(--chat--spacing);
-      --chat--message--border-radius: var(--chat--border-radius);
-      --chat--message--line-height: 1.8;
-      --chat--message--bot--background: var(--chat--color-white);
-      --chat--message--bot--color: var(--chat--color-dark);
-      --chat--message--bot--border: none;
-      --chat--message--user--background: var(--chat--color-secondary);
-      --chat--message--user--color: var(--chat--color-white);
-      --chat--message--user--border: none;
-      --chat--message--pre--background: rgba(0, 0, 0, 0.05);
+      --chat--textarea--height: 50px;                /* // Hauteur de la zone de saisie de message */
+      --chat--message--font-size: 0.8rem;            /* // Taille de la police dans les messages */
+      --chat--message--padding: var(--chat--spacing);/* // Padding autour des messages */
+      --chat--message--border-radius: var(--chat--border-radius); /* // Arrondis des bulles de message */
+      --chat--message--line-height: 1.6;             /* // Hauteur de ligne dans les messages */
+      --chat--message--bot--background: var(--chat--color-white); /* // Fond des messages de l’agent */
+      --chat--message--bot--color: var(--chat--color-dark);       /* // Texte des messages bot */
+      --chat--message--user--background: var(--chat--color-secondary); /* // Fond message utilisateur */
+      --chat--message--user--color: var(--chat--color-white);          /* // Texte message utilisateur */
 
-      --chat--toggle--background: var(--chat--color-primary);
-      --chat--toggle--hover--background: var(--chat--color-primary-shade-50);
-      --chat--toggle--active--background: var(--chat--color-primary-shade-100);
-      --chat--toggle--color: var(--chat--color-white);
-      --chat--toggle--size: 64px;
+      --chat--toggle--background: var(--chat--color-primary);         /* // Couleur du bouton bulle flottante */
+      --chat--toggle--hover--background: var(--chat--color-primary-shade-50); /* // Hover de la bulle */
+      --chat--toggle--active--background: var(--chat--color-primary-shade-100); /* // Clic sur bulle */
+      --chat--toggle--color: var(--chat--color-white);                /* // Couleur de l’icône dans la bulle */
+      --chat--toggle--size: 64px;                      /* // Taille du bouton chat (bulle) */
     }
 
     html, body, #n8n-chat {
@@ -71,29 +66,20 @@
     import { createChat } from "https://cdn.jsdelivr.net/npm/@n8n/chat@latest/dist/chat.bundle.es.js";
 
     createChat({
-      webhookUrl: "https://coxap.app.n8n.cloud/webhook/df2378ea-9100-4449-b4ba-415049a6a0a8/chat",
-      webhookConfig: {
-        method: "POST",
-        headers: {}
-      },
-      target: "#n8n-chat",
-      mode: "window",
-      chatInputKey: "chatInput",
-      chatSessionKey: "sessionId",
-      metadata: {},
+      webhookUrl: "https://coxap.app.n8n.cloud/webhook/df2378ea-9100-4449-b4ba-415049a6a0a8/chat", // URL de ton agent n8n
       showWelcomeScreen: false,
       defaultLanguage: "fr",
       initialMessages: [
-        "Salut :)",
+        "Salut 👋",
         "Je suis l'assistant Haomah. Pose-moi ta question 😉"
       ],
       i18n: {
         fr: {
-          title: "Salut 👋",
-          subtitle: "Besoin d'un coup de pouce ?",
-          footer: "",
-          getStarted: "Nouvelle conversation",
-          inputPlaceholder: "Écris ta question ici..."
+          title: "Salut 👋",                          // Titre en haut du chat
+          subtitle: "Commence le chat. Je suis là pour t’aider.", // Sous-titre
+          footer: "",                                // Message en bas du chat (facultatif)
+          getStarted: "Nouvelle conversation",       // Bouton de démarrage
+          inputPlaceholder: "Écris ta question ici..." // Texte dans la zone de saisie
         }
       }
     });
